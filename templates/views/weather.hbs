@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+   {{>links}}
+    <title>Weather App</title>
+    <link rel="stylesheet" href="css/style.css">
+  
+</head>
+<body>
+                <!-----------------Nav bar--------- -->
+     {{>navbar}}
+
+    <!--Main     Header   -->
+    <div class="container-fluid main_header">
+        <div class="row">
+            <div class="col-md-12 col-12 main_reader-auto">
+                <div class="main_containts">
+                <form class="temp_form">
+                    <input type="text" id="cityname" placeholder="Enter Your City" autocomplete="off">
+                    <input type="submit" value="search" id="searchButton">
+                </form>
+
+                </div>
+                <div class="tempertorInfo">
+                    <div class="top_layer">
+                        <p id="day" >saturday</p>
+                        <p id="today_date">24 Jul</p>
+
+                    </div>
+                    <div class="main_layer">
+                        <p id="city_name">get out put</p>
+                        <div class="middle_layer data_hide">
+                            <p id="temp"><span id="temp_real"></span><sub></sub>C</p>
+                            <p id="temp_status"><i class="fas fa-cloud"></i></p>
+                        </div>
+                    </div>
+
+                </div>
+           
+        </div>
+    </div>
+    </div>
+      <!--Footer    code--> 
+        <script src="js/main.js"></script>  
+        <script>
+           
+            const getCurrntDay=()=>{
+                let weekday=new Array(7);
+                weekday[0]="sunday";
+                weekday[1]="Monday";
+                weekday[2]="Tuesday";
+                weekday[3]="Wednesday";
+                weekday[4]="Thursday";
+                weekday[5]="Friday";
+                weekday[6]="Saturday";
+                let currentTime=new Date();
+                 days=weekday[currentTime.getDay()];
+                 let day =document.getElementById('day');
+                     day.innerText=days;
+
+                
+            }
+            getCurrntDay();
+            var  months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            var d = new Date();
+            //console.log(d);
+            var day=d.getUTCDate();
+           // console.log(day);
+            var monthName=months[d.getMonth()];
+           // console.log(monthName);
+          let today_date=document.getElementById('today_date');
+          today_date.innerText=day+ monthName;
+
+
+        </script>     
+    
+
+</body>
+</html>
